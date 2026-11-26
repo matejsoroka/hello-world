@@ -1,44 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <meta name="description" content="Chytré domácnosti na míru pro Česko a Slovensko. Automatizace, zabezpečení, osvětlení a úspora energie.">
+    <title>Smart Systems - Chytré domácnosti na míru</title>
     <style>
-        body {
+        * {
             margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-        }
-        .container {
+            padding: 100px 20px;
             text-align: center;
-            padding: 2rem;
         }
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            animation: fadeIn 1s ease-in;
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
         }
-        p {
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
             font-size: 1.5rem;
-            opacity: 0.9;
-            animation: fadeIn 1.5s ease-in;
+            margin-bottom: 15px;
+            color: #667eea;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .benefit-item .check {
+            font-size: 2rem;
+            color: #667eea;
+            margin-right: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .features h2,
+            .benefits h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>👋 Hello World!</h1>
-        <p>Welcome to my GitHub Pages site</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🏠 Chytré domácnosti na míru</h1>
+            <p>Profesionální řešení pro automatizaci vašeho domova.<br>Česko a Slovensko.</p>
+            <a href="#contact" class="cta-button">Nezávazná konzultace zdarma</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Naše služby</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">💡</div>
+                    <h3>Chytré osvětlení</h3>
+                    <p>Automatické řízení osvětlení podle denní doby, přítomnosti a nálady. Úspora energie až 60%.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🌡️</div>
+                    <h3>Klimatizace a topení</h3>
+                    <p>Inteligentní řízení teploty v každé místnosti. Pohodlí a úspora nákladů.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Zabezpečení</h3>
+                    <p>Kamery, alarmy, chytré zámky a dveřní zvonky. Kontrola odkudkoliv přes telefon.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🎵</div>
+                    <h3>Multiroom audio</h3>
+                    <p>Hudba v každé místnosti. Synchronizovaný zvuk celým domem.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">🪟</div>
+                    <h3>Automatické rolety</h3>
+                    <p>Plánované otevírání a zavírání podle slunce. Integrace s ostatními systémy.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">📱</div>
+                    <h3>Mobilní ovládání</h3>
+                    <p>Vše pod kontrolou z jedné aplikace. iOS, Android a HomeKit integrace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Proč si vybrat nás?</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Řešení na míru</strong><br>
+                        Každý dům je jedinečný. Navrhneme systém přesně pro vaše potřeby.
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Profesionální instalace</strong><br>
+                        Certifikovaní technici s dlouholetou praxí. Záruka na všechny práce.
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Podpora po instalaci</strong><br>
+                        Nejste sami. Poskytujeme školení, podporu a servis.
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Otevřené standardy</strong><br>
+                        Používáme Home Assistant, Zigbee, Matter. Bez vendor lock-in.
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Lokální data</strong><br>
+                        Vaše soukromí je priorita. Všechno běží lokálně u vás doma.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Máte zájem?</h2>
+            <p>Napište nám a domluvíme si nezávaznou konzultaci</p>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Vaše jméno" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Telefon (volitelné)">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Popište váš projekt nebo položte otázku" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Odeslat zprávu</button>
+            </form>
+            
+            <div style="margin-top: 50px;">
+                <p><strong>Email:</strong> info@smartsystems.cz</p>
+                <p><strong>Telefon:</strong> +420 XXX XXX XXX</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Smart Systems. Všechna práva vyhrazena.</p>
+            <p>Chytré domácnosti pro Česko a Slovensko</p>
+        </div>
+    </footer>
 </body>
 </html>
